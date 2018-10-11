@@ -322,17 +322,49 @@
 	}
 
 	function makeVidSrc(source) {
-		if (Array.isArray(source)) {
+    var vidData;
+    try {
+      vidData = JSON.parse(source);
+    }
+    catch (e) {
+      vidData = false;
+    }
+
+    if(Array.isArray(vidData)) {
+      source = vidData;
+      vidData = false;
+    }
+
+    if(Array.isArray(source) && typeof source[0] == "object")
+    {
+      vidData = true;
+    }
+
+    if(Array.isArray(source) && vidData == true)
+    {
 			displayElement = displayVideo.cloneNode()
 			source.forEach(function(src) {
 				var source = doc[createEl]('SOURCE')
-				source.src = src
-				source.type = 'video/' + src.match(/.(\w+)$/)[1]
-				displayElement[appendEl](source)
-			})
-		} else {
-			displayElement = displayVideo
-			displayElement.src = source
+				source.src = src.url
+				source.type = src.type
+        displayElement[appendEl](source)
+      })
+      console.log(displayElement);
+    }
+    else if(Array.isArray(source) && vidData == false)
+    {
+      displayElement = displayVideo.cloneNode()
+      source.forEach(function (src) {
+        var source = doc[createEl]('SOURCE')
+        source.src = src
+        source.type = 'video/' + src.match(/.(\w+)$/)[1]
+        displayElement[appendEl](source)
+      })
+    }
+    else
+    {
+      displayElement = displayVideo
+      displayElement.src = source
 		}
 	}
 

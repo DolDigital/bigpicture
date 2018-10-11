@@ -1,5 +1,5 @@
 {
-	"name": "bigpicture",
+	"name": "starno-bigpicture",
 	"version": "1.6.0",
 	"description": "Lightweight image and video viewer, supports youtube/vimeo",
 	"main": "index.js",
@@ -10,7 +10,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/henrygd/bigpicture"
+		"url": "https://github.com/DolDigital/bigpicture"
 	},
 	"keywords": [
 		"lightbox",
@@ -21,7 +21,7 @@
 		"youtube",
 		"vimeo"
 	],
-	"author": "Henry Dollman <hank@henrygd.me>",
+	"author": "Luigi Pressello<l.pressello@dol.it>",
 	"license": "MIT",
 	"devDependencies": {
 		"gulp": "^3.9.1",
