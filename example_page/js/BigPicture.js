@@ -340,7 +340,7 @@
       vidData = true;
     }
 
-    if(typeof source == "object")
+    if (!Array.isArray(source) && typeof source == "object")
     {
       source = [source];
       vidData = true;
