@@ -340,6 +340,12 @@
       vidData = true;
     }
 
+    if(typeof source == "object")
+    {
+      source = [source];
+      vidData = true;
+    }
+
     if(Array.isArray(source) && vidData == true)
     {
 			displayElement = displayVideo.cloneNode()

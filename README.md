@@ -2,6 +2,12 @@
 
 ![Example page screenshot](https://i.imgur.com/7T6dnN3.gif)
 
+## Credits
+This is a forked and modified versione of the original BigPicture library that you can find at: [https://github.com/henrygd/bigpicture](https://github.com/henrygd/bigpicture)
+This modified version implements the ability to retrieve video type from the configuration object.
+You can even include a JSON encoded version of the video configuration object/array in the vidSrc DOM attribute.
+-----
+
 Lightweight (3.5 KB gzip) and framework independent JavaScript image / video viewer.
 
 Supports Youtube, Vimeo, and direct video links.
@@ -15,11 +21,11 @@ Doesn't sit on the DOM when inactive.
 Install via npm or add a script from the [dist](dist) directory to your page. [CDN links are available via jsDelivr here](https://www.jsdelivr.com/package/npm/bigpicture?path=dist).
 
 ```
-npm install bigpicture
+npm install strano-bigpicture
 ```
 
 ```javascript
-var BigPicture = require('bigpicture')
+var BigPicture = require('strano-bigpicture')
 ```
 
 Or with a script tag:
@@ -42,6 +48,29 @@ BigPicture({
   vidSrc: 'http://yourvideo.mp4'
   // or with multiple sources
   // vidSrc: ['http://yourvideo.mp4', 'http://yourvideo.webm']
+})
+```
+
+...you can even define the media type for every video source
+
+```javascript
+BigPicture({
+  el: this,
+  vidSrc: {
+    url: 'http://yourvideo.mp4',
+    type: 'video/mp4'
+  }
+  // or with multiple sources
+  // vidSrc: [
+  //   {
+  //     url: 'http://yourvideo.mp4',
+  //     type: 'video/mp4'
+  //   },
+  //   {
+  //     url: 'http://yourvideo.webm',
+  //     type: 'video/webm'
+  //   }
+  // ]
 })
 ```
 
